@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/images/max.png'
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -12,10 +13,10 @@ const Header = () => {
             title='Lern Code'
             className='inline-flex items-center'
           >
-                <img className='mr-3 h-6 sm:h-9' alt="" />
+                <img className='mr-3 h-6 sm:h-9' src={logo} alt="" />
            
             <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>
-             Lern <span className='text-yellow-400'>Code</span>
+            Max <span className='text-red-400'>Courses</span>
             </span>
           </Link>
           <div className='flex items-center hidden space-x-8 lg:flex'>
@@ -91,14 +92,13 @@ const Header = () => {
                     <div>
                       <Link
                         to='/'
-                        aria-label='Company'
-                        title='Company'
+                       
                         className='inline-flex items-center'
                       >
-                          <img className='w-8 ml-3 rounded-full' alt="" />
+                          <img className='w-8 ml-3 rounded-full' src={require("../../assets/images/max.png")} alt="" />
                         
                         <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
-                        Lern <span className='text-yellow-400'>Code</span>
+                        Max <span className='text-red-400'>Courses</span>
                         </span>
                       </Link>
                     </div>
