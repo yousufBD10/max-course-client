@@ -18,7 +18,7 @@ element: <Main></Main>,
 errorElement: <ErrorPage></ErrorPage>,
 children:[
 {
-    path:'/',
+    path:'/home',
     element: <Home></Home>,
    
 },
