@@ -1,113 +1,178 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
     return (
- 
-<nav className="bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900">
-    <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-        <Link to='' className="flex items-center">
-            <img src="https://flowbite.com/docs/images/logo.svg" className="mr-3 h-6 sm:h-9" alt="Flowbite Logo"/>
-            <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-        </Link>
-        <div className="flex items-center md:order-2">
-           <Link to=" " className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Login</Link>
-           <Link to=" " className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Sign up</Link>
-            <button data-collapse-toggle="mega-menu" type="button" className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu" aria-expanded="false">
-                <span className="sr-only">Open main menu</span>
-                <svg aria-hidden="true" className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-            </button>
-        </div>
-        <div id="mega-menu" className="hidden justify-between items-center w-full text-sm md:flex md:w-auto md:order-1">
-            <ul className="flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
-                <li>
-                   <Link to=" " className="block py-2 pr-4 pl-3 text-blue-600 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-blue-500 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</Link>
-                </li>
-                <li>
-                    <button id="mega-menu-dropdown-button" data-dropdown-toggle="mega-menu-dropdown" className="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-gray-400 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                        Company <svg aria-hidden="true" className="ml-1 w-5 h-5 md:w-4 md:h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                    </button>
-                    <div id="mega-menu-dropdown" className="grid hidden absolute z-10 grid-cols-2 w-auto text-sm bg-white rounded-lg border border-gray-100 shadow-md dark:border-gray-700 md:grid-cols-3 dark:bg-gray-700  position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(0px, 343px);" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" >
-                        <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                            <ul className="space-y-4" aria-labelledby="mega-menu-dropdown-button">
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        About Us
-                                    </Link>
-                                </li>
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        Library
-                                    </Link>
-                                </li>
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        Resources
-                                    </Link>
-                                </li>
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        Pro Version
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
-                            <ul className="space-y-4">
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        Blog
-                                    </Link>
-                                </li>
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        Newsletter
-                                    </Link>
-                                </li>
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        Playground
-                                    </Link>
-                                </li>
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        License
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="p-4 text-gray-900 dark:text-white">
-                            <ul className="space-y-4">
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        Contact Us
-                                    </Link>
-                                </li>
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        Support Center
-                                    </Link>
-                                </li>
-                                <li>
-                                   <Link to=" " className="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500">
-                                        Terms
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                   <Link to=" " className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-gray-400 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Team</Link>
-                </li>
-                <li>
-                   <Link to=" " className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-gray-400 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">Contact</Link>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+        <nav className='bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900"'>
+        <div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl'>
+          <Link
+            to='/'
+            aria-label='Lern Code'
+            title='Lern Code'
+            className='inline-flex items-center'
+          >
+                <img className='mr-3 h-6 sm:h-9' alt="" />
+           
+            <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>
+             Lern <span className='text-yellow-400'>Code</span>
+            </span>
+          </Link>
+          <div className='flex items-center hidden space-x-8 lg:flex'>
+            
+              <Link
+                to='/home'
+                className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+                Home
+              </Link>
+            
+           
+              <Link
+                to='/courses'
+                className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+            Courses
+              </Link>
+           
+              <Link
+                to='/blog'
+             className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+               Blog
+              </Link>
+           
+              <Link
+                to='/fag'
+               className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+              FAQ
+              </Link>
 
+              <div>
+              <button type="button" className="text-white bg-[#0043d5] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
+                         <Link to="/login">
+                     Log In
+                         </Link>
+                        </button>
+                    <button type="button" className="text-white bg-[#0043d5] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
+                         <Link to="/register">
+                        Sign Up
+                         </Link>
+                        </button>
+                    </div>
+              <button data-collapse-toggle="mega-menu-icons" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-icons" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                 <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </button>
+          </div>
+          <div className='lg:hidden  '>
+            <button
+              aria-label='Open Menu'
+              title='Open Menu'
+              className='p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50'
+              onClick={() => setIsMenuOpen(true)}
+            >
+              <svg className='w-5 text-gray-600' viewBox='0 0 24 24'>
+                <path
+                  fill='currentColor'
+                  d='M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z'
+                />
+                <path
+                  fill='currentColor'
+                  d='M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z'
+                />
+                <path
+                  fill='currentColor'
+                  d='M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z'
+                />
+              </svg>
+            </button>
+            {isMenuOpen && (
+              <div className='absolute top-0 left-0 w-full'>
+                <div className='p-5 bg-white border rounded shadow-sm'>
+                  <div className='flex items-center justify-between mb-4'>
+                    <div>
+                      <Link
+                        to='/'
+                        aria-label='Company'
+                        title='Company'
+                        className='inline-flex items-center'
+                      >
+                          <img className='w-8 ml-3 rounded-full' alt="" />
+                        
+                        <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
+                        Lern <span className='text-yellow-400'>Code</span>
+                        </span>
+                      </Link>
+                    </div>
+                    <div>
+                      <button
+                        aria-label='Close Menu'
+                        title='Close Menu'
+                        className='p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <svg className='w-5 text-gray-600' viewBox='0 0 24 24'>
+                          <path
+                            fill='currentColor'
+                            d='M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z'
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <nav>
+                    
+                    <ul className='space-y-4'>
+                      <li>
+                      <Link
+                to='/home'
+                className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+                Home
+              </Link>
+                      </li>
+                      <li>
+                      <Link
+                to='/courses'
+                className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+            Courses
+              </Link>
+                      </li>
+                      
+                      <li>
+                      <Link
+                to='/blog'
+             className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+               Blog
+              </Link>
+           
+            
+                      </li>
+                      <li>
+                      <Link
+                            to='/fag'
+                        className='font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'>
+                        FAQ
+                        </Link>
+                      </li>
+                      
+                    </ul>
+                    <div className=''>
+                    <button type="button" className="text-white bg-[#0043d5] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
+                         <Link to="/login">
+                     Log In
+                         </Link>
+                        </button>
+                    <button type="button" className="text-white bg-[#0043d5] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
+                         <Link to="/register">
+                        Sign Up
+                         </Link>
+                        </button>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </nav>
 
     );
 };
