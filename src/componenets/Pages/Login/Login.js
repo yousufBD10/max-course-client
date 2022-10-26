@@ -67,7 +67,7 @@ const handleGoogleSignin = () =>{
 })
 }
 const handleGithubSignin = () =>{
-  sinInGoogle(githubProvider)
+  GithubSignIn(githubProvider)
   .then( result =>{
     const user = result.user;
     console.log(user);

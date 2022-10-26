@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/max.png'
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Header = () => {
+  const {user,logOut} = useContext(AuthContext);
+  console.log(user);
+  const handleLogOut=()=>{
+    logOut()
+    .then(()=>{
+
+    })
+    .catch(error=>console.error(error))
+}
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     return (
         <nav className='bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900"'>
@@ -46,17 +56,24 @@ const Header = () => {
               FAQ
               </Link>
 
-              <div>
-              <button type="button" className="text-white bg-[#0043d5] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
-                         <Link to="/login">
-                     Log In
-                         </Link>
-                        </button>
-              <button type="button" className="text-white bg-[#0043d5] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
-                         <Link to="/register">
-                   Sign Up
-                         </Link>
-                        </button>
+              <div className='flex'>
+          
+           <img className='rounded-full' src={user?.photoURL}></img>
+<p>{user?.email}</p>
+
+           {
+            user?.email ?  user?.uid ? <button  onClick={handleLogOut}  type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign </button>
+            : null : <>   <button type="button" className="text-white bg-[#0043d5] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
+            <Link to="/login">
+        Log In
+            </Link>
+           </button>
+ <button type="button" className="text-white bg-[#0043d5] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
+            <Link to="/register">
+      Sign Up
+            </Link>
+           </button></>
+           }
                     
                     </div>
               <button data-collapse-toggle="mega-menu-icons" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-icons" aria-expanded="false">

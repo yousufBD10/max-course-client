@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllCourses from "../componenets/AllCourses/AllCourses";
 import Blog from "../componenets/Blog/Blog";
 import Courses from "../componenets/Courses/Courses";
 import ErrorPage from "../componenets/ErrorPage/ErrorPage";
@@ -8,6 +9,7 @@ import Main from "../componenets/Main/Main";
 import Home from "../componenets/Pages/Home/Home";
 import Login from "../componenets/Pages/Login/Login";
 import Register from "../componenets/Pages/Register/Register";
+import { CourseContext } from "../Context/CourseContext/CourseContext";
 
 
 
@@ -18,15 +20,22 @@ element: <Main></Main>,
 errorElement: <ErrorPage></ErrorPage>,
 children:[
 {
+    path:'/',
+    element: <Home></Home>,
+   
+},
+{
     path:'/home',
     element: <Home></Home>,
    
 },
 
 
+
 {
     path:'/courses',
-    element: <Courses></Courses>,
+    element:<AllCourses></AllCourses>,
+   loader: ()=> fetch("http://localhost:5000/courses")
 },
 {
     path:'/faq',

@@ -4,12 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './Context/AuthProvider';
+import CourseInformation from './Context/CourseContext/CourseContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
    <AuthProvider> 
+  
     <App />
+
+   
    </AuthProvider>
   </React.StrictMode>
 );
