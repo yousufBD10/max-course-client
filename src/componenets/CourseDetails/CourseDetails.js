@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import {useReactToPrint} from 'react-to-print'
 
 const CourseDetails = () => {
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitlea: 'emp-data',
+        onAfterPrint: () => alert ('Print success')
+    });
     const courseDetail = useLoaderData();
     const {others_info,image_url,title,teacher,detailsrating,checkout_id} = courseDetail;
    
     
     return (
        
-<div className='flex justify-center'>
+<div>
+    <div className='flex justify-end'>
+    <button onClick={handlePrint} type="button" className="focus:outline-none content-end text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Download PDF</button>
+    </div>
+<div ref={componentRef} className='flex justify-center'>
+
 <div className="lg:w-2/4 pr-8 pl-8 bg-gray-100 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+
    
    <img className="p-8 w-full rounded-t-lg" src={image_url} alt="product image"/>
 
@@ -29,6 +42,7 @@ const CourseDetails = () => {
        <h2 className="text-3xl mb-7 font-bold text-gray-900 dark:text-white">BDT {others_info.courses_price} </h2>
        <Link to={`/course/${checkout_id}`} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Premium Access</Link>
    </div>
+</div>
 </div>
 </div>
 </div>
