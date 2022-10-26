@@ -15,7 +15,7 @@ const Header = () => {
 }
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     return (
-        <nav className='bg-white border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900"'>
+        <nav className='bg-white mb-8 border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900"'>
         <div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl'>
           <Link
             to='/'

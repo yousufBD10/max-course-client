@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllCourses from "../componenets/AllCourses/AllCourses";
 import Blog from "../componenets/Blog/Blog";
+import CheckOut from "../componenets/CheckOutPage/CheckOut";
 import CourseDetails from "../componenets/CourseDetails/CourseDetails";
 import Courses from "../componenets/Courses/Courses";
 import ErrorPage from "../componenets/ErrorPage/ErrorPage";
@@ -42,6 +43,11 @@ children:[
     path:'/courses/:id',
     element:<CourseDetails></CourseDetails>,
    loader: ({params})=> fetch(`http://localhost:5000/courses/${params.id}`)
+},
+{
+    path:'/course/:id',
+    element:<CheckOut></CheckOut>,
+   loader: ({params})=> fetch(`http://localhost:5000/course/${params.id}`)
 },
 {
     path:'/faq',
