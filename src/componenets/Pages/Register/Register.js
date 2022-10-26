@@ -33,14 +33,17 @@ const Register = () => {
 
     const handleEmailVerification  = () => {
         verifyEmail()
-        .then(() =>{alert('email send')})
+        .then(() =>{
+          toast.success("Confirm your email address ");
+        })
         .catch(error => console.error(error));
     }
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+        const form =  e.target
+        const email = form.email.value;
+        const password = form.password.value;
           
         
         createUser(email,password)
@@ -48,7 +51,7 @@ const Register = () => {
         const user = result.user;
        console.log(user);
        setErrors('');
-        Form.reset();
+        form.reset();
         // handleUpdateProfile(name,photoURL);
         // verifyEmail();
         handleEmailVerification()
@@ -69,6 +72,7 @@ const Register = () => {
     return (
         <div className=' flex justify-center'>
         <form onSubmit={handleSubmit} className="bg-white lg:w-1/3  shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <h2 className='mb-5 text-3xl font-bold  text-center '>Please Sign UP</h2>
          <div className="mb-4">
            <label className="block mb-5 text-gray-700 text-sm font-bold mb-2" for="username">
            Full Name
