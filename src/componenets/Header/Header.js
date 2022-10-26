@@ -58,7 +58,7 @@ const Header = () => {
 
               <div className='flex'>
           
-           <img className='rounded-full' src={user?.photoURL}></img>
+           <img className='rounded-full w-12' src={user?.photoURL}></img>
 <p>{user?.email}</p>
 
            {

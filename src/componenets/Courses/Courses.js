@@ -5,7 +5,7 @@ const Courses = ({course}) => {
     const {image_url,title,_id,details,} = course;
     return (
       
-<div className="max-w-sm mb-9 bg-gray-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+<div className="max-w-sm mb-9 lg:ml-4 lg:mr-4 bg-gray-300 rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
    
         <img className="rounded-t-lg h-48 w-full" src={image_url} alt=""/>
    

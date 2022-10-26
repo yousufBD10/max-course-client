@@ -12,6 +12,7 @@ import Home from "../componenets/Pages/Home/Home";
 import Login from "../componenets/Pages/Login/Login";
 import Register from "../componenets/Pages/Register/Register";
 import { CourseContext } from "../Context/CourseContext/CourseContext";
+import PrivateRoutes from "./PrivateRoute/PrivateRoute";
 
 
 
@@ -46,7 +47,7 @@ children:[
 },
 {
     path:'/course/:id',
-    element:<CheckOut></CheckOut>,
+    element:<PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>,
    loader: ({params})=> fetch(`http://localhost:5000/course/${params.id}`)
 },
 {
