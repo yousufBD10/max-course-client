@@ -38,17 +38,17 @@ children:[
 {
     path:'/courses',
     element:<AllCourses></AllCourses>,
-   loader: ()=> fetch("http://localhost:5000/courses")
+   loader: ()=> fetch("https://maxcourses.vercel.app/courses")
 },
 {
     path:'/courses/:id',
     element:<CourseDetails></CourseDetails>,
-   loader: ({params})=> fetch(`http://localhost:5000/courses/${params.id}`)
+   loader: ({params})=> fetch(`https://maxcourses.vercel.app/courses/${params.id}`)
 },
 {
     path:'/course/:id',
     element:<PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>,
-   loader: ({params})=> fetch(`http://localhost:5000/course/${params.id}`)
+   loader: ({params})=> fetch(`https://maxcourses.vercel.app/course/${params.id}`)
 },
 {
     path:'/faq',

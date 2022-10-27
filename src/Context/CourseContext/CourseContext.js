@@ -19,7 +19,7 @@
 //   const [course, setCourse] = useState([]);
 //   const [loading, setLoading] = useState(true);
 // //   useEffect(()=>{
-// //     fetch('http://localhost:5000/courses')
+// //     fetch('https://maxcourses.vercel.app/courses')
 // //     .then(res => res.json())
 // //     .then(data =>setCourses(data) )
 // // },[]);
