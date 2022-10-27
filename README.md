@@ -1,7 +1,10 @@
 # Feature 
-## website name : Max Courses
-## Founder name: Yousuf Ali
-## Location : AR road/house-#45 Pabna , Rajshahi, Bangladesh
+## website Info :
+ Max Courses
+
+### Location : 
+AR road/house-#45 Pabna , Rajshahi, Bangladesh
+Founder name: Yousuf Ali
 ## Our programs_
 * Data Science
 * Big Data
