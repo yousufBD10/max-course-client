@@ -85,6 +85,9 @@ const from = location.state?.from?.pathname || '/';
     .catch(error => {
       console.error(error)
       setErrors(error.message)
+      if(error === "FirebaseError: Firebase: Error (auth/email-already-in-use)."){
+        setErrors({...errors,email:'User already register used this email'})
+      }
     })
 
     };
@@ -123,6 +126,9 @@ const from = location.state?.from?.pathname || '/';
            <input name='password'  value={userInfo.password} onChange={handlePassChange} className="shadow mb-5 appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************"/>
           {
             errors &&  <p className="text-red-500 mb-5 text-xs italic">{errors.password}</p>
+          }
+           {
+            errors &&  <p className="text-red-500 mb-5 text-xs italic">{errors.email}</p>
           }
            <p className=" mb-5 ">Already have a member?<Link className='underline text-blue-500' to='/login'> Log In </Link></p>
          </div>

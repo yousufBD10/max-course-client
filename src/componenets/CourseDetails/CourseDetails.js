@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import {useReactToPrint} from 'react-to-print'
 
@@ -7,7 +8,7 @@ const CourseDetails = () => {
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
         documentTitlea: 'emp-data',
-        onAfterPrint: () => alert ('Print success')
+        onAfterPrint: () => toast.success("Download pdf success")
     });
     const courseDetail = useLoaderData();
     const {others_info,image_url,title,teacher,detailsrating,checkout_id} = courseDetail;
