@@ -14,6 +14,12 @@ const Header = () => {
     .catch(error=>console.error(error))
 }
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isDark, setIsDark] = useState(false);
+    const handleDarkLight = () =>{
+      setIsDark(!isDark)
+      console.log(isDark);
+    }
+
     return (
         <nav className='bg-white mb-8 border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900"'>
         <div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl'>
@@ -58,11 +64,11 @@ const Header = () => {
 
               <div className='flex'>
           
-           <img className='rounded-full w-12' src={user?.photoURL}></img>
-<p>{user?.email}</p>
+           <img title={user?.displayName} className='rounded-full w-12 mr-4' src={user?.photoURL}></img>
+
 
            {
-            user?.email ?  user?.uid ? <button  onClick={handleLogOut}  type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign </button>
+            user?.email ?  user?.uid ? <button  onClick={handleLogOut}  type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Log Out</button>
             : null : <>   <button type="button" className="text-white bg-[#0043d5] hover:bg-[#3b5998]/90 focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
             <Link to="/login">
         Log In
@@ -74,6 +80,12 @@ const Header = () => {
             </Link>
            </button></>
            }
+           <div className='ml-4' onClick={handleDarkLight}>
+            {
+              isDark? <button type="button" class="text-white w-16 h-10 bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Dark</button> : <button type="button" class="text-gray-900 w-16 h-10 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Light</button>
+            }
+           </div>
+           
                     
                     </div>
               <button data-collapse-toggle="mega-menu-icons" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mega-menu-icons" aria-expanded="false">
