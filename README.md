@@ -1,5 +1,5 @@
 # Feature 
-## website name : maxcourses
+## website name : Max Courses
 ## Founder name: Yousuf Ali
 ## Location : AR road/house-#45 Pabna , Rajshahi, Bangladesh
 ## Our programs_
@@ -9,6 +9,10 @@
 * Business Intelligence
 * Cloud Computing
 * Projects Management
+### API link
+https://maxcourses.vercel.app/course
+https://maxcourses.vercel.app/blog
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
