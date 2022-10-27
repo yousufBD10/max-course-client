@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 
 import { useState } from "react";
@@ -35,6 +36,10 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
+}
 
 
   const sinInGoogle = (provider) => {
@@ -77,6 +82,7 @@ const AuthProvider = ({ children }) => {
     verifyEmail,
     setLoading,
     GithubSignIn,
+    updateUserProfile
   };
 
   return (

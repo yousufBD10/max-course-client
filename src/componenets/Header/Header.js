@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/max.png'
 import { AuthContext } from '../../Context/AuthProvider';
+import './Header.css'
 
 const Header = () => {
   const {user,logOut} = useContext(AuthContext);
@@ -17,11 +18,11 @@ const Header = () => {
     const [isDark, setIsDark] = useState(false);
     const handleDarkLight = () =>{
       setIsDark(!isDark)
-      console.log(isDark);
+    
     }
 
     return (
-        <nav className='bg-white mb-8 border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900"'>
+        <nav className='bg-white nav-container mb-8 border-gray-200 px-2 md:px-4 py-2.5 dark:bg-gray-900"'>
         <div className='flex flex-wrap justify-between items-center mx-auto max-w-screen-xl'>
           <Link
             to='/'

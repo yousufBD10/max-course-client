@@ -1,6 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import AllCourses from "../componenets/AllCourses/AllCourses";
 import Blog from "../componenets/Blog/Blog";
+import BlogCard from "../componenets/Blog/BlogCard";
+import BlogDetails from "../componenets/Blog/BlogDetails";
+
 import CheckOut from "../componenets/CheckOutPage/CheckOut";
 import CourseDetails from "../componenets/CourseDetails/CourseDetails";
 import Courses from "../componenets/Courses/Courses";
@@ -57,7 +60,15 @@ children:[
 {
     path:'/blog',
     element: <Blog></Blog>,
+    loader: () => fetch("https://maxcourses.vercel.app/blog")
 },
+{
+    path:'/blog/:id',
+    element:<BlogDetails></BlogDetails>,
+    loader: ({params}) => fetch(`https://maxcourses.vercel.app/blog/${params.id}`)
+},
+
+
 {
     path:'/register',
     element: <Register></Register>,

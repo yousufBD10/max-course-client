@@ -1,12 +1,16 @@
 import React, { useContext, useState } from 'react';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 // import { AuthContext } from '../../../Context/AuthProvider';
 import toast ,{Toaster} from 'react-hot-toast'
 
 const Register = () => {
+  const navigate = useNavigate()
+const location = useLocation();
 
-    const {createUser,verifyEmail} = useContext(AuthContext);
+const from = location.state?.from?.pathname || '/';
+
+    const {createUser,verifyEmail,updateUserProfile} = useContext(AuthContext);
     const [userInfo, setUserInfo] = useState({
         email: '',
         password: ''
@@ -31,6 +35,17 @@ const Register = () => {
         }
     };
 
+    const handleUpdateUserProfile = (name, photoURL) => {
+      const profile = {
+          displayName: name,
+          photoURL: photoURL
+      }
+
+      updateUserProfile(profile)
+          .then(() => { })
+          .catch(error => console.error(error));
+  };
+
     const handleEmailVerification  = () => {
         verifyEmail()
         .then(() =>{
@@ -44,7 +59,8 @@ const Register = () => {
         const form =  e.target
         const email = form.email.value;
         const password = form.password.value;
-          
+          const name = form.name.value;
+          const photoURL = form.photoURL.value;
         
         createUser(email,password)
     .then(result =>{
@@ -52,7 +68,15 @@ const Register = () => {
        console.log(user);
        setErrors('');
         form.reset();
-        // handleUpdateProfile(name,photoURL);
+        if(user.uid){
+          navigate(from , {replace: true})
+  
+        }
+        else{
+          toast.error('your email is not verified')
+        }
+       
+        handleUpdateUserProfile(name,photoURL);
         // verifyEmail();
         handleEmailVerification()
        toast.success("Confirm your email address ");
@@ -77,7 +101,7 @@ const Register = () => {
            <label className="block mb-5 text-gray-700 text-sm font-bold mb-2" for="username">
            Full Name
            </label>
-           <input className="shadow mb-5 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="   Full Name" type="text" placeholder=" Full Name"/>
+           <input className="shadow mb-5 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="Full Name" name='name' type="text" placeholder=" Full Name"/>
          </div>
          <div className="mb-4">
            <label className="block mb-5 text-gray-700 text-sm font-bold mb-2" for="username">
@@ -90,7 +114,7 @@ const Register = () => {
            <label className="block mb-5 text-gray-700 text-sm font-bold mb-2" for="photoURL">
          Photo URL
            </label>
-           <input className="shadow mb-5 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="photoURL" type="text" placeholder="photoURL"/>
+           <input className="shadow mb-5 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="photoURL" name="photoURL"  type="text" placeholder="photoURL"/>
          </div>
          <div className="mb-6">
            <label className="block mb-5 text-gray-700 text-sm font-bold mb-2" for="password">
