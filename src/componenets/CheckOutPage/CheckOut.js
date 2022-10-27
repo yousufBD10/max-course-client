@@ -1,6 +1,7 @@
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const CheckOut = () => {
   const navigate = useNavigate()
@@ -10,7 +11,9 @@ const CheckOut = () => {
 
     const handleCheckout = (event) =>{
       event.preventDefault();
-      toast.success('Thanks for purchase course.')
+      Swal.fire(
+        'Thanks for purchase course'
+      )
       navigate("/")
     }
 
